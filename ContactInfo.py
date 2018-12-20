@@ -14,4 +14,4 @@ class ContactInfo(object):
         return str(self.emailAddress)
 
     def __str__(self):
-        return "{0}\n{1}\n{2}\n".format(self.name, self.phoneNumber, self.emailAddress)
+        return "Name: {0}\nPhone: {1}\nEmail: {2}".format(self.name, self.phoneNumber, self.emailAddress)
