@@ -6,10 +6,16 @@ import sys
 def main():
     parser = argparse.ArgumentParser(description="Extracts name, phone number, and email address from output of Business Card OCR component.")
 
-    parser.add_argument("-i", dest="inputFile", help="Path to business card text file. Omit to enter business card text from command line.",
+    parser.add_argument("-f", dest="inputFile", help="Path to business card text file. Omit to enter business card text from command line.",
 required=False, default=None)
+    parser.add_argument("-i", dest="interactive", help="Enter business card text interactively.",
+required=False, default=False, action='store_true')
 
     args = parser.parse_args()
+
+    if args.inputFile is None and not args.interactive:
+        sys.stderr.write("ERROR: Need to provide either -i or -f arguments.\n")
+        sys.exit(1)
 
     document = None
 
@@ -29,7 +35,10 @@ required=False, default=None)
 
     contactInfo = BusinessCardParser.getContactInfo(document)
 
+    print("-------------------------")
+    print("Contact Info:")
     print(str(contactInfo))
+    print("-------------------------")
 
 if __name__ == "__main__":
     main()

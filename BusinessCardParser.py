@@ -31,7 +31,7 @@ class BusinessCardParser(object):
         if extension:
             regex = r"(?:\+?(\d{1,3}))?[-.\s(]*(\d{3})[-.\s)]*(\d{3})[-.\s]*(\d{4})(?:\s*(ex|x|ext|extension)\s*(\d+))?"
         else:
-            regex = r"(?:\+?(\d{1,3}))?[-.\s(]*(\d{3})[-.\s)]*(\d{3})[-.\s]*(\d{4})?"
+            regex = r"(?:\+?(\d{1,3}))?[-.\s(]*(\d{3})[-.\s)]*(\d{3})[-.\s]*(\d{4})"
 
         for line in re.split(r"\n", document):
             #Skip fax machine numbers.
