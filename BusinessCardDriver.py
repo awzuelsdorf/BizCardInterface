@@ -19,8 +19,6 @@ default=False, action='store_true')
         sys.stderr.write("ERROR: Need to provide either -i or -f arguments.\n")
         sys.exit(1)
 
-    document = None
-
     if args.inputFile is not None and not os.path.exists(args.inputFile):
         sys.stderr.write("ERROR: Could not find input file \"{0}\"\n".format(args.inputFile))
         sys.exit(1)
