@@ -20,14 +20,14 @@ To install this solution in a virtual environment, run these commands:
 
 `spacy download en_core_web_sm`
 
+Please be patient with the `pip install` command and the `spacy download`
+commands. Both can take several minutes to complete.
+
 To install this solution outside of a virtual environment, run these commands:
 
 `sudo -H pip install -r requirements.txt`
 
 `sudo -H spacy download en_core_web_sm`
-
-Please be patient with the `pip install` command and the `spacy download`
-commands. Both can take several minutes to complete.
 
 ## Running the solution:
 
@@ -58,4 +58,4 @@ To run the tests for this program, activate your virtual environment
  
 `python -m unittest BusinessCardTest.py`
 
-You should see four unit tests running and the word "OK" at the end.
+You should see five unit tests running and the word "OK" at the end.

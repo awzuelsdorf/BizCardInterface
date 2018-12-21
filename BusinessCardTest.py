@@ -35,5 +35,9 @@ class BusinessCardTest(unittest.TestCase):
         self.bizcardTestHelper("bizcard4.txt", "Andrew Zuelsdorf",
 "Andrew.Zuelsdorf@kirklawfirm.com", "14109675932")
 
+    def test_bizcard5(self):
+        self.bizcardTestHelper("bizcard5.txt", "Arthur Wilson",
+"awilson@abctech.com", "17035551259")
+
 if __name__ == "__main__":
     unittest.main()
