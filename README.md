@@ -1,6 +1,7 @@
 # BizCardInterface
 
-Business Card Interface
+This is an interface for extracting someone's contact information from a
+business card.
 
 ## Installation
 
@@ -12,13 +13,17 @@ or not, you will need Python 3 and PIP installed.
 To install this solution in a virtual environment, run these commands:
 
 `virtualenv -p python3 .env`
+
 `source .env/bin/activate`
+
 `pip install -r requirements.txt`
+
 `spacy download en_core_web_sm`
 
 To install this solution outside of a virtual environment, run these commands:
 
 `sudo -H pip install -r requirements.txt`
+
 `sudo -H spacy download en_core_web_sm`
 
 Please be patient with the `pip install` command and the `spacy download`
