@@ -4,12 +4,14 @@ import os
 import sys
 
 def main():
-    parser = argparse.ArgumentParser(description="Extracts name, phone number, and email address from output of Business Card OCR component.")
+    parser = argparse.ArgumentParser(description="Extracts relevant contact info (name, phone number, and email address) from text of a business card.")
 
-    parser.add_argument("-f", dest="inputFile", help="Path to business card text file. Omit to enter business card text from command line.",
-required=False, default=None)
-    parser.add_argument("-i", dest="interactive", help="Enter business card text interactively.",
-required=False, default=False, action='store_true')
+    parser.add_argument("-f", dest="inputFile",
+help="Path to business card text file.", required=False, default=None)
+
+    parser.add_argument("-i", dest="interactive",
+help="Enter business card text interactively.", required=False,
+default=False, action='store_true')
 
     args = parser.parse_args()
 
@@ -30,7 +32,7 @@ required=False, default=False, action='store_true')
         finally:
             inputFile.close()
     else:
-        print("Enter business card text. Press Ctrl-D on Mac or Linux (Ctrl-Z on Windows) to finish.")
+        print("Enter business card text. Press Ctrl-d to finish.")
         document = sys.stdin.read()
 
     contactInfo = BusinessCardParser.getContactInfo(document)

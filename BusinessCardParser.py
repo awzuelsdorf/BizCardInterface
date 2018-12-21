@@ -4,10 +4,19 @@ import spacy
 from ContactInfo import ContactInfo
 
 class BusinessCardParser(object):
+    """
+    Determines the contact information (name, email address, and phone
+    number) of the person given the text of his/her business card. 
+    """
     natLangProc = spacy.load("en_core_web_sm")
 
     @classmethod
     def getMostLikelyName(cls, document):
+        """
+        Uses named entity recognition and the text of a business card
+        to determine the most likely name of the person who owns the
+        business card.
+        """
         mostLikelyName = None
         mostLikelyNameDiff = float("inf")
 
@@ -26,6 +35,10 @@ class BusinessCardParser(object):
 
     @classmethod
     def getMostLikelyPhone(cls, document, extension=False):
+        """
+        Given the text of a business card, determines what is the most likely
+        phone number of the person who owns the business card.
+        """
         possiblePhones = list()
 
         if extension:
@@ -45,6 +58,10 @@ class BusinessCardParser(object):
 
     @classmethod
     def getMostLikelyEmail(cls, document):
+        """
+        Given the text of a business card, determines what is the most likely
+        email address of the person who owns the business card.
+        """
         possibleEmails = list()
 
         for line in re.split(r"\n", document):
@@ -58,6 +75,11 @@ line, flags=re.I))
 
     @classmethod
     def getContactInfo(cls, document):
+        """
+        Given the text of a business card, determines what the most likely
+        name, email address, and phone number of the person who owns the
+        business card.
+        """
         mostLikelyName = cls.getMostLikelyName(document)
         mostLikelyPhone = cls.getMostLikelyPhone(document)
         mostLikelyEmail = cls.getMostLikelyEmail(document)
